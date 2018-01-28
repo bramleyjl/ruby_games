@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Caesar Cipher</title>
+</head>
+<body>
+
+<h1>Caesar Ciphers</h1>
+
+<%= link_to 'New Caesar Cipher', new_caesar_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caesars.each do |caesar| %>
+      <tr>
+        <td><%= link_to 'Show', caesar %></td>
+        <td><%= link_to 'Edit', edit_caesar_path(caesar) %></td>
+        <td><%= link_to 'Destroy', caesar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</body>
+</html>

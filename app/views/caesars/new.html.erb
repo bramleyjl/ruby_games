@@ -1,0 +1,10 @@
+<%= form_for :caesars do |f| %>
+
+  <%= f.label :message %>
+  <%= f.text_field :message %>
+  <%= f.label :key %>
+  <%= f.number_field :key %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<%= link_to 'Back', caesars_path %>
