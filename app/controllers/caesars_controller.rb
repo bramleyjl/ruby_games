@@ -10,6 +10,7 @@ class CaesarsController < ApplicationController
   # GET /caesars/1
   # GET /caesars/1.json
   def show
+    @caesar = Caesar.find(params[:id])
   end
 
   # GET /caesars/new
@@ -24,8 +25,14 @@ class CaesarsController < ApplicationController
   # POST /caesars
   # POST /caesars.json
   def create
-    @caesar =  Caesar.new(params[:caesar])
-    redirect_to "/caesars"
+    @caesar = Caesar.new(caesar_params)
+    @caesar.cipher(params[:caesars][:message], params[:caesars][:key])
+      
+    if @caesar.save
+      redirect_to @caesar
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /caesars/1

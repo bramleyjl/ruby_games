@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<table>
+  <thead>
+    <tr>
+      <td>Original Message</td>
+      <td>Cipher Key</td>
+      <td>Coded Message</td>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @caesar.message %></td>
+        <td><%= @caesar.key %></td>
+        <td><%= @caesar.code %></td>
+      </tr>
+  </tbody>
+</table>>
+
 <%= link_to 'Edit', edit_caesar_path(@caesar) %> |
 <%= link_to 'Back', caesars_path %>

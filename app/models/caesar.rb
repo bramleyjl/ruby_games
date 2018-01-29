@@ -1,17 +1,13 @@
 class Caesar < ApplicationRecord
 
-  def initialize(message = nil, key = nil)
-    @message = message
-    @key = key.to_i % 26
-    @code = nil
-  end
-
   def cipher(message, key)
     key = key.to_i % 26
+    self.key = key
+    self.message = message
+    p self.key, self.message
     code = String.new
-    text.split("").each do |character|
+    message.split("").each do |character|
       if character.match(/[A-Z]/)
-        
         if character.ord + key > 90
           changed = (character.ord  - 26) + key
           code << changed.chr
@@ -34,11 +30,10 @@ class Caesar < ApplicationRecord
           code << changed.chr
         end
       else
-        code << character
+        code << character  
       end
     end
-    @code = code
-    return @code
+      self.code = code
   end
 
 end

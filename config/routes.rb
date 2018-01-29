@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/caesars' => 'caesars#index'
   get '/caesars/new' => 'caesars#new'
-  post 'caesars/new' => 'caesars#create'
+  post '/caesars/new' => 'caesars#create'
 
   resources :caesars
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
